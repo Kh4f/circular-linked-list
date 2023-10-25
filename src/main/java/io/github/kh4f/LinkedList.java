@@ -1,10 +1,12 @@
-package org.khaf;
+package io.github.kh4f;
 
 import java.util.Iterator;
 
 public interface LinkedList<T> {
     int size();
     boolean isEmpty();
+    Object getHead() throws Exception;
+    Object getTail() throws Exception;
     T getFirst() throws Exception;
     T getLast() throws Exception;
     void addFirst(T value);

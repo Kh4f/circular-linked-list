@@ -1,4 +1,4 @@
-package org.khaf;
+package io.github.kh4f;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -15,9 +15,9 @@ public class CircularLinkedList<T> implements Iterable<T>, LinkedList<T> {
     private Node<T> tail;
     private int size;
 
-    private static class Node<T> {
-        public T value;
-        public Node<T> next;
+    public static class Node<T> {
+        private T value;
+        private Node<T> next;
 
         public Node(T value) {
             this(value, null);
@@ -35,9 +35,6 @@ public class CircularLinkedList<T> implements Iterable<T>, LinkedList<T> {
         }
         public Node<T> getNext() {
             return next;
-        }
-        public void setNext(Node<T> next) {
-            this.next = next;
         }
     }
 
@@ -57,6 +54,16 @@ public class CircularLinkedList<T> implements Iterable<T>, LinkedList<T> {
 
     private void checkEmpty() throws CircularLinkedListException {
         if (isEmpty()) throw new CircularLinkedListException("Empty list");
+    }
+
+    public Node<T> getHead() throws  CircularLinkedListException {
+        checkEmpty();
+        return head;
+    }
+
+    public Node<T> getTail() throws CircularLinkedListException {
+        checkEmpty();
+        return tail;
     }
 
     public T getFirst() throws CircularLinkedListException {
