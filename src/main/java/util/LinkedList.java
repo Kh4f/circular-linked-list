@@ -1,4 +1,4 @@
-package io.github.kh4f;
+package util;
 
 import java.util.Iterator;
 

@@ -1,5 +1,6 @@
 package io.github.kh4f;
 
+import util.LinkedList;
 import java.util.Arrays;
 import java.util.Iterator;
 
@@ -104,7 +105,7 @@ public class CircularLinkedList<T> implements Iterable<T>, LinkedList<T> {
 
     public void removeLast() throws CircularLinkedListException {
         checkEmpty();
-        tail = getNode(size() - 2);
+        tail = getNode(size() - 1);
         tail.next = head;
         size--;
     }
@@ -184,7 +185,6 @@ public class CircularLinkedList<T> implements Iterable<T>, LinkedList<T> {
 
         Node<T> currNode = head;
         int counter = 0;
-        Node<T> current = head;
         while (counter < size) {
             newAr[counter] = String.valueOf(currNode.getValue());
             currNode = currNode.getNext();
@@ -214,21 +214,5 @@ public class CircularLinkedList<T> implements Iterable<T>, LinkedList<T> {
         }
 
         return new CircularLinkedListIterator();
-    }
-
-
-    public static void main(String[] args) throws CircularLinkedListException {
-        CircularLinkedList<Integer> list = new CircularLinkedList<>();
-        list.addLast(16);
-        list.addLast(29);
-        list.addLast(45);
-        list.addFirst(480);
-        list.addFirst(455);
-        list.addLast(11);
-
-        System.out.println("List: " + list);
-        /*for (Integer n : list) {
-            System.out.println(n);
-        }*/
     }
 }
