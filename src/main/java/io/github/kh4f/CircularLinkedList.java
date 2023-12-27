@@ -45,6 +45,12 @@ public class CircularLinkedList<T> implements Iterable<T>, LinkedList<T> {
         this.size = 0;
     }
 
+    public CircularLinkedList(CircularLinkedList<T> newList) {
+        for (T value : newList) {
+            addLast(value);
+        }
+    }
+
     public int size() {
         return size;
     }
