@@ -102,6 +102,24 @@ public class CircularLinkedList<T> implements Iterable<T>, LinkedList<T> {
         size++;
     }
 
+    public void addAll(CircularLinkedList<T> newList) {
+        for (T value : newList) {
+            addLast(value);
+        }
+    }
+
+    public T poll() throws CircularLinkedListException {
+        T value = head.value;
+        removeFirst();
+        return value;
+    }
+
+    public T poll(int index) throws CircularLinkedListException {
+        T value = get(index);
+        remove(index);
+        return value;
+    }
+
     public void removeFirst() throws CircularLinkedListException {
         checkEmpty();
         head = head.next;
